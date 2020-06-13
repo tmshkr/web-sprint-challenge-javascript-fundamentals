@@ -25,10 +25,22 @@ myFunction();
 
 /* Create a function called `summation` that accepts a parameter and uses a counter to return the summation of that number. For example, `summation(4)` should return 10 because 1+2+3+4 is 10. */
 
+// Iterative Solution
 function summation(n) {
   let sum = 0;
   for (let i = 1; i <= n; i++) {
     sum += i;
   }
   return sum;
+}
+
+// Recursive Solution
+function summation(n) {
+  let count = 1;
+  const add = (total = 0) => {
+    if (count === n) return total + n;
+    return add(total + count++);
+  };
+
+  return add();
 }
